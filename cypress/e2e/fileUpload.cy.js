@@ -1,8 +1,7 @@
 /// <reference types="cypress" />
 
 describe('Cyperss File upload test', () => {
-
-     /**
+  /**
    * Step 1:
    * In order to upload files in Cypress we need to install plugin
    * we will run following command:
@@ -15,21 +14,18 @@ describe('Cyperss File upload test', () => {
    * Step 3:
    * The file that you want to upload should be in your fixture folder
    */
-   
-    beforeEach(() => {
-      // run before each test case, beforeMethod in TestNG
-      cy.clearCookies();
-      cy.visit('/upload')
+
+  beforeEach(() => {
+    // run before each test case, beforeMethod in TestNG
+    cy.clearCookies();
+    cy.visit('/upload');
+  });
+
+  it('check upload Action', () => {
+    cy.get('input#file-upload').attachFile('techIn2023.jpg');
+    cy.get('input#file-submit').click();
+    cy.get('#uploaded-files').then(() => {
+      cy.contains('techIn2023.jpg').should('be.visible');
     });
-
-    it('check upload Action',() => {
-      cy.get('input#file-upload').attachFile('techIn2023.jpg');
-      cy.get('input#file-submit').click();
-       cy.get('#uploaded-files').then(() =>{
-        cy.contains('techIn2023.jpg').should('be.visible');
-
-       })
-
-    });
-   
-})
+  });
+});

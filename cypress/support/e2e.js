@@ -14,9 +14,9 @@
 // ***********************************************************
 
 // Import commands.js using ES2015 syntax:
-import './commands'
+import './commands';
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
 
-Cypress.on('uncaught:exception',() => false); //ignore consol error from the web consol
+Cypress.on('uncaught:exception', () => false); // ignore consol error from the web consol
